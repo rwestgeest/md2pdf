@@ -16,4 +16,11 @@ Gem::Specification.new do |gem|
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
+  gem.add_development_dependency 'rspec'
+  gem.add_development_dependency 'rb-inotify'
+  gem.add_development_dependency 'guard'
+  gem.add_development_dependency 'guard-rspec'
+
+  gem.add_development_dependency 'pdf-reader'
+  gem.add_dependency 'thor'
 end
