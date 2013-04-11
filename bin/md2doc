@@ -5,5 +5,5 @@ $: << File.expand_path('../lib', File.dirname(__FILE__))
 require 'md2doc'
 require 'thor'
 
-Md2doc::CLI.start(ARGV)
+Md2Doc::CLI.start(ARGV)
 
