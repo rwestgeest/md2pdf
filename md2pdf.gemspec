@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'md2pdf/version'
 
 Gem::Specification.new do |gem|
-  gem.name          = "md2doc"
+  gem.name          = "md2pdf"
   gem.version       = Md2Pdf::VERSION
   gem.authors       = ["Rob Westgeest"]
   gem.email         = ["rob@qwan.it"]
