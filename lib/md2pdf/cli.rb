@@ -1,6 +1,6 @@
 require 'thor'
 
-module Md2Doc
+module Md2Pdf
   class CLI < Thor
     include Thor::Actions
 

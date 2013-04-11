@@ -1,8 +1,8 @@
 require 'spec_helper'
-require 'md2doc'
+require 'md2pdf'
 require 'test_file'
 
-module Md2Doc
+module Md2Pdf
 
   describe Template do
     let(:template_location) { TemplateLocation.new 'my_templates' }

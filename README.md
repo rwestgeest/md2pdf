@@ -1,4 +1,4 @@
-# Md2doc
+# Md2Pdf
 
 This gem lets you create a nicely formatted document from a markdown
 source.

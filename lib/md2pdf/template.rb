@@ -1,6 +1,6 @@
 require 'fileutils'
 
-module Md2Doc
+module Md2Pdf
 
   class TemplateExistsError < Exception; end
 

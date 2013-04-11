@@ -1,7 +1,7 @@
 require 'spec_helper'
-require 'md2doc'
+require 'md2pdf'
 
-module Md2Doc
+module Md2Pdf
 
   describe Converter do
 

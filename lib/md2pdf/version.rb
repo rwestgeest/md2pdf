@@ -1,3 +1,3 @@
-module Md2doc
+module Md2Pdf
   VERSION = "0.0.1"
 end

@@ -1,4 +1,4 @@
-module Md2Doc
+module Md2Pdf
 
   class Converter < Struct.new(:shell, :templater, :temp_filename_creator)
     def convert(input_filename, output_filename)
