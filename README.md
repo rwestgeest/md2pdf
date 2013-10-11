@@ -41,6 +41,16 @@ templates.
 
 ## Installation
 
+### Prerequisits
+You need to install pandoc, pdftk, and some latex packages
+
+On ubuntu install the following packages
+
+```bash
+    $ sudo apt-get install pandoc pdftk texlive-latex-extra texlive-fonts-recommended
+```
+
+### the gem
 Add this line to your application's Gemfile:
 
 ```bash
