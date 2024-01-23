@@ -1,0 +1,81 @@
+#!/bin/bash
+set -e
+
+templates_location=~/.md2doc
+verbose=false
+
+
+usage() {
+  echo $1
+  cat << EOUSAGE
+
+usage: $0 command [args]
+
+where command is one of
+
+- pdf <input markdown file> [template]
+- help: to get this help
+
+EOUSAGE
+  exit 0
+}
+
+run() {
+  if [[ "${verbose}" = true ]]; then
+    echo running $@
+  fi
+  $@
+}
+
+template_path() {
+  template_name=$1
+  echo ${templates_location}/${template_name}/template.tex
+}
+
+background_path() {
+  template_name=$1
+  echo ${templates_location}/${template_name}/multibackground.pdf
+}
+
+convert_pdf() {
+    template_name=${2:-default}
+    input_file_name=$1
+
+    if [[ "${input_file_name}" == "" ]]; then
+       usage "missing input markdown file"
+    fi
+
+    output_file_name=$(basename ${input_file_name} .md).pdf
+
+    temp_file=$(mktemp).pdf
+
+    run pandoc --template=$(template_path ${template_name}) ${input_file_name} -o ${temp_file}
+    run pdftk ${temp_file} multibackground $(background_path ${template_name}) output ${output_file_name}
+
+    rm ${temp_file}
+}
+
+case $1 in
+  "--verbose")
+    shift
+    verbose=true
+    ;;
+esac
+
+command=$1
+
+case "$command" in
+  "")
+    usage "command missing"
+  ;;
+  "pdf")
+    shift
+    convert_pdf $@
+  ;;
+  "help")
+    usage
+  ;;
+  *)
+    usage
+  ;;
+esac

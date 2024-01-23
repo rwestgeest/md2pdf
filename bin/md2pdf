@@ -1,9 +1,0 @@
-#!/usr/bin/env ruby
-
-$: << File.expand_path('../lib', File.dirname(__FILE__))
-
-require 'md2pdf'
-require 'thor'
-
-Md2Pdf::CLI.start(ARGV)
-

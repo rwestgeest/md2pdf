@@ -16,50 +16,10 @@ footer.
 We found ourselves copying and pasting a simple rakefile, templates and logos
 everywhere we needed to create an offer or similar document.
 
-```ruby
-desc "preview offerte"
-task :view => :offerte do
-  sh "evince VoorstelPairProgrammingWorkshop#{today}.pdf"
-end
-
-desc "create offerte"
-task :offerte do
-  sh "pandoc offerte.md --number-sections --template=template.tex -o offerte_temp.pdf"
-  sh "pdftk offerte_temp.pdf multibackground QwanFront.pdf output VoorstelPairProgrammingWorkshop#{today}.pdf"
-  rm 'offerte_temp.pdf'
-end
-
-
-def today
-  Date.today.strftime("%F")
-end
-```
-
-This gem more or less encapsulates this in an executable script (which
-is in your path after installation) and enables you to manage several
-templates.
-
-## Installation
-
-### Prerequisits
-You need to install pandoc, pdftk, and some latex packages
-
-On ubuntu install the following packages
-
-```bash
-    $ sudo apt-get install pandoc pdftk texlive-latex-extra texlive-fonts-recommended
-```
-
-### the gem
-Add this line to your application's Gemfile:
-
-```bash
-    $ gem install md2doc
-```
 
 ## Usage
 
-Use md2doc --help to show help for options - should be self documenting
+Use md2pdf --help to show help for options - should be self documenting
 
 ## Contributing
 
