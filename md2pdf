@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-templates_location=~/.md2doc
+templates_location=/.md2doc
 verbose=false
 
 
