@@ -1,25 +1,46 @@
 # Md2Pdf
 
-This gem lets you create a nicely formatted document from a markdown
+This script lets you create a nicely formatted document from a markdown
 source.
 
-Primarily we created this gem to enable us to quickly write markdown
+Primarily we created this script to enable us to quickly write markdown
 documents for offers for clients without worrying about layout and
 formatting and while being able to use a light weight text editor like
 vim, emacs, gedit, notepad whatever.
 
-We have worked with markdown in combination with pandoc with a latex
-template for pdf creation and pdftk for adding a background for each
-page (like a kind of printed template page with a logo and address
-footer.
-
-We found ourselves copying and pasting a simple rakefile, templates and logos
-everywhere we needed to create an offer or similar document.
+We have added a Dockerfile in case you do not want to install latex.
 
 
 ## Usage
 
-Use md2pdf --help to show help for options - should be self documenting
+### Without docker
+
+Use md2pdf help or --help to show help for options - should be self documenting
+
+### With docker
+
+Run
+
+```bash
+docker run -it --user $(id -u):$(id -g) -v "$(pwd):/md2docs" -v ${HOME}/.md2doc:/home/.md2doc  --entrypoint bash westghost/md2pdf
+```
+
+(you'd probably want to put that in a script)
+
+## Recent breaking change
+
+Since januari 2024 we have changed the Dockerfile to use /home has the home directory. This makes it necessary in the docker run command to change
+
+```
+-v ${HOME}/.md2doc:/.md2doc
+```
+to
+
+```
+-v ${HOME}/.md2doc:/home/.md2doc
+```
+
+reason: the pandoc command could not cope with / as a home directory
 
 ## Contributing
 
