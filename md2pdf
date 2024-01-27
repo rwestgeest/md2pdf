@@ -13,6 +13,8 @@ usage: $0 command [args]
 
 where command is one of
 
+- list-inputs: show available input files for debugging
+- list-templates: show available templates
 - pdf <input markdown file> [template]
 - help: to get this help
 
@@ -71,6 +73,16 @@ case "$command" in
   "pdf")
     shift
     convert_pdf $@
+  ;;
+  "list-templates")
+    shift
+    echo "Templates are in ${templates_location}"
+    ls ${templates_location}
+  ;;
+  "list-inputs")
+    shift
+    echo "Inputs are in $(pwd)"
+    ls
   ;;
   "help")
     usage
